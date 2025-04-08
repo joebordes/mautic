@@ -6272,7 +6272,7 @@
             "dist": {
                 "type": "path",
                 "url": "app",
-                "reference": "1141ea2c59e7b61bec7961169ff9acc55c8c6e99"
+                "reference": "005b8af291a9971e1579132a13a9d0d3e7d357a3"
             },
             "require": {
                 "api-platform/core": "^4.1.0",
