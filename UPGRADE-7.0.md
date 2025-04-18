@@ -9,6 +9,10 @@
 - The ability to update Mautic in the browser (via user interface) has been removed. To update Mautic, use the **command line** instead.
 - The API Limiter was removed temporarily. Shoud be added back before the M7-stable is released. https://github.com/mautic/mautic/pull/14876
 
+## Removed code
+
+- Deprecated class `Mautic\MessengerBundle\MessageHandler\TestHandler` removed with no replacement.
+
 ## Removed Composer dependencies
 - `symfony/yaml` see https://github.com/mautic/mautic/pull/14850
 - `symfony/security-acl` see https://github.com/mautic/mautic/pull/14850
