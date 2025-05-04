@@ -8,6 +8,7 @@
 ## Removed features
 - The ability to update Mautic in the browser (via user interface) has been removed. To update Mautic, use the **command line** instead.
 - The API Limiter was removed temporarily. Shoud be added back before the M7-stable is released. https://github.com/mautic/mautic/pull/14876
+- The `track_by_tracking_url` configuration setting has been removed. Contacts are now always identified by the `ct` parameter in tracking URLs.
 
 ## Removed Composer dependencies
 - `symfony/yaml` see https://github.com/mautic/mautic/pull/14850
