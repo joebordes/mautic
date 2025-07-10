@@ -25,7 +25,8 @@
 ## BC breaks in the code
 
 ### PHP
-- Removed `\Mautic\DashboardBundle\Dashboard\Widget::FORMAT_MYSQL` constant. Use `DateTimeHelper::FORMAT_DB_DATE_ONLY` instead.
+- Removed `Mautic\DashboardBundle\Dashboard\Widget::FORMAT_MYSQL` constant. Use `DateTimeHelper::FORMAT_DB_DATE_ONLY` instead.
+- Removed `Mautic\ApiBundle\Security\OAuth2\Firewall::OAuthListener` class as it was empty. Use `FOS\OAuthServerBundle\Security\Firewall\OAuthListener` instead.
 
 ### Javascript
 - Removed `Mautic.insertTextInEditor` function. Use `Mautic.insertHtmlInEditor` instead.
