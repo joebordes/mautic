@@ -20,7 +20,7 @@
             'customButtons' : []
         }) -}}
     {% endif %}
-    {{ include('@MauticCore/Helper/category--inline.html.twig', {'category': email.category}) }}
+    {{ include('@MauticCore/Modules/category--inline.html.twig', {'category': email.category}) }}
     {{ include('@MauticProject/Modules/projects.html.twig', {'item': email}) }}
 {% endblock %}
 
@@ -452,6 +452,13 @@
               {% endif %}
               <!--/ #translation-container -->
           </div>
+          {{ include('@MauticCore/Modules/suggested-actions.html.twig', {
+              'entity': email,
+              'routeBase': 'email',
+              'showVariants': showVariants,
+              'showTranslations': showTranslations,
+              'allowAbTest': allowAbTest
+          }) }}
       </div>
       <!--/ left section -->
 
