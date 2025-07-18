@@ -4173,16 +4173,16 @@
         },
         {
             "name": "javer/lightsaml",
-            "version": "v1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javer/lightSAML.git",
-                "reference": "fbae033c52a5bb08f0eb0043b0f72de76b98a890"
+                "reference": "b2b6129ac705539639debf94532484fdbaa4493a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javer/lightSAML/zipball/fbae033c52a5bb08f0eb0043b0f72de76b98a890",
-                "reference": "fbae033c52a5bb08f0eb0043b0f72de76b98a890",
+                "url": "https://api.github.com/repos/javer/lightSAML/zipball/b2b6129ac705539639debf94532484fdbaa4493a",
+                "reference": "b2b6129ac705539639debf94532484fdbaa4493a",
                 "shasum": ""
             },
             "require": {
@@ -4240,7 +4240,7 @@
                 "issues": "https://github.com/lightsaml/lightsaml/issues",
                 "source": "https://github.com/lightSAML/lightSAML"
             },
-            "time": "2024-01-09T14:17:08+00:00"
+            "time": "2024-12-19T12:25:47+00:00"
         },
         {
             "name": "javer/sp-bundle",
