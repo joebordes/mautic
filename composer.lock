@@ -6050,8 +6050,7 @@
                 },
                 "files": [
                     "AppKernel.php",
-                    "AppTestKernel.php",
-                    "AppCache.php"
+                    "AppTestKernel.php"
                 ]
             },
             "scripts": {
