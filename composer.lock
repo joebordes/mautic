@@ -5911,7 +5911,7 @@
             "dist": {
                 "type": "path",
                 "url": "app",
-                "reference": "bbd09b0be801f43b63e855646cb9d6baf1f05fd1"
+                "reference": "e5397a3bf1dede4d317b1578eede16a58f7ab60e"
             },
             "require": {
                 "aws/aws-sdk-php": "~3.0",
@@ -5999,7 +5999,7 @@
                 "symfony/twig-bundle": "^7.3",
                 "symfony/validator": "^7.3",
                 "twilio/sdk": "^5.25",
-                "wikimedia/less.php": "^4.1"
+                "wikimedia/less.php": "^5.4"
             },
             "conflict": {
                 "psr/simple-cache": ">=3.0.0",
@@ -13647,28 +13647,28 @@
         },
         {
             "name": "wikimedia/less.php",
-            "version": "v4.1.1",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikimedia/less.php.git",
-                "reference": "7c814ca156716e7b46ad84ac038bf298ff91cbb4"
+                "reference": "75a0db4a7698b5fe668af553329605ac40f374af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/less.php/zipball/7c814ca156716e7b46ad84ac038bf298ff91cbb4",
-                "reference": "7c814ca156716e7b46ad84ac038bf298ff91cbb4",
+                "url": "https://api.github.com/repos/wikimedia/less.php/zipball/75a0db4a7698b5fe668af553329605ac40f374af",
+                "reference": "75a0db4a7698b5fe668af553329605ac40f374af",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4.3"
+                "php": ">=8.1"
             },
             "require-dev": {
-                "mediawiki/mediawiki-codesniffer": "41.0.0",
-                "mediawiki/mediawiki-phan-config": "0.12.1",
-                "mediawiki/minus-x": "1.1.1",
+                "mediawiki/mediawiki-codesniffer": "47.0.0",
+                "mediawiki/mediawiki-phan-config": "0.15.1",
+                "mediawiki/minus-x": "1.1.3",
                 "php-parallel-lint/php-console-highlighter": "1.0.0",
-                "php-parallel-lint/php-parallel-lint": "1.3.2",
-                "phpunit/phpunit": "9.5.28"
+                "php-parallel-lint/php-parallel-lint": "1.4.0",
+                "phpunit/phpunit": "9.6.21"
             },
             "bin": [
                 "bin/lessc"
@@ -13716,9 +13716,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wikimedia/less.php/issues",
-                "source": "https://github.com/wikimedia/less.php/tree/v4.1.1"
+                "source": "https://github.com/wikimedia/less.php/tree/v5.4.0"
             },
-            "time": "2023-08-01T14:54:27+00:00"
+            "time": "2025-07-03T20:27:02+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
