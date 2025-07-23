@@ -48,7 +48,7 @@ class ContactPage
     public static $company                = '#lead_field_import_company_chosen';
     public static $country                = '#lead_field_import_country_chosen';
     public static $importInBrowser        = '#lead_field_import_buttons_save_toolbar';
-    public static $importProgressComplete = '#leadImportProgressComplete > div > div > div.panel-heading';
+    public static $importProgressComplete = '#leadImportProgressComplete';
 
     // Campaigns
     public static $campaignsModalAddOption     = '//*[@id="lead_batch_add_chosen"]/ul/li/input';
