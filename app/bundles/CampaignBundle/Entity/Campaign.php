@@ -2,6 +2,13 @@
 
 namespace Mautic\CampaignBundle\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
@@ -9,6 +16,7 @@ use Doctrine\Common\Collections\Order;
 use Doctrine\ORM\Mapping as ORM;
 use Mautic\ApiBundle\Serializer\Driver\ApiMetadataDriver;
 use Mautic\CampaignBundle\Validator\Constraints\NoOrphanEvents;
+use Mautic\CategoryBundle\Entity\Category;
 use Mautic\CoreBundle\Doctrine\Mapping\ClassMetadataBuilder;
 use Mautic\CoreBundle\Entity\FormEntity;
 use Mautic\CoreBundle\Entity\OptimisticLockInterface;
@@ -24,26 +32,25 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 
-/**
- * @ApiResource(
- *   attributes={
- *     "security"="false",
- *     "normalization_context"={
- *       "groups"={
- *         "campaign:read"
- *        },
- *       "swagger_definition_name"="Read",
- *       "api_included"={"category", "events", "lists", "forms", "fields", "actions"}
- *     },
- *     "denormalization_context"={
- *       "groups"={
- *         "campaign:write"
- *       },
- *       "swagger_definition_name"="Write"
- *     }
- *   }
- * )
- */
+#[ApiResource(
+    operations: [
+        new GetCollection(security: "is_granted('campaign:campaigns:viewown')"),
+        new Post(security: "is_granted('campaign:campaigns:create')"),
+        new Get(security: "is_granted('campaign:campaigns:viewown')"),
+        new Put(security: "is_granted('campaign:campaigns:editown')"),
+        new Patch(security: "is_granted('campaign:campaigns:editother')"),
+        new Delete(security: "is_granted('campaign:campaigns:deleteown')"),
+    ],
+    normalizationContext: [
+        'groups'                  => ['campaign:read'],
+        'swagger_definition_name' => 'Read',
+        'api_included'            => ['category', 'events', 'lists', 'forms', 'fields', 'actions'],
+    ],
+    denormalizationContext: [
+        'groups'                  => ['campaign:write'],
+        'swagger_definition_name' => 'Write',
+    ]
+)]
 class Campaign extends FormEntity implements PublishStatusIconAttributesInterface, OptimisticLockInterface, UuidInterface
 {
     use UuidTrait;
@@ -54,63 +61,74 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
 
     public const TABLE_NAME  = 'campaigns';
     public const ENTITY_NAME = 'campaign';
+
     /**
      * @var int
      */
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $id;
 
     /**
      * @var string
      */
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $name;
 
     /**
      * @var string|null
      */
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $description;
 
     /**
      * @var \DateTimeInterface|null
      */
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $publishUp;
 
     /**
      * @var \DateTimeInterface|null
      */
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $publishDown;
 
+    #[Groups(['campaign:read', 'campaign:write'])]
     public ?\DateTimeInterface $deleted = null;
 
     /**
-     * @var \Mautic\CategoryBundle\Entity\Category|null
+     * @var Category|null
      **/
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $category;
 
     /**
-     * @var ArrayCollection<int, Event>
+     * @var Collection<int, Event>|ArrayCollection<int, Event>
      */
+    #[Groups(['campaign:read', 'campaign:write'])]
     private $events;
 
     /**
      * @var ArrayCollection<int, Lead>
      */
-    private $leads;
+    #[Groups(['campaign:read', 'campaign:write'])]
+    private Collection $leads;
 
     /**
-     * @var ArrayCollection<int, LeadList>
+     * @var Collection<int, LeadList>
      */
-    private $lists;
+    #[Groups(['campaign:read', 'campaign:write'])]
+    private Collection $lists;
 
     /**
-     * @var ArrayCollection<int, Form>
+     * @var Collection<int, Form>
      */
-    private $forms;
+    #[Groups(['campaign:read', 'campaign:write'])]
+    private Collection $forms;
 
-    /**
-     * @var array
-     */
-    private $canvasSettings = [];
+    #[Groups(['campaign:read', 'campaign:write'])]
+    private array $canvasSettings = [];
 
+    #[Groups(['campaign:read', 'campaign:write'])]
     private bool $allowRestart = false;
 
     public function __construct()
@@ -267,10 +285,7 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
         }
     }
 
-    /**
-     * @return int
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -303,11 +318,9 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
     /**
      * Set name.
      *
-     * @param string $name
-     *
      * @return Campaign
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->isChanged('name', $name);
         $this->name = $name;
@@ -367,7 +380,7 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
     /**
      * Get events.
      *
-     * @return ArrayCollection
+     * @return ArrayCollection<int, Event>
      */
     public function getEvents()
     {
@@ -453,7 +466,7 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
     /**
      * Get publishUp.
      *
-     * @return \DateTimeInterface
+     * @return \DateTimeInterface|null
      */
     public function getPublishUp()
     {
@@ -539,7 +552,7 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection<int, LeadList>
      */
     public function getLists()
     {
@@ -570,7 +583,7 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
     }
 
     /**
-     * @return ArrayCollection
+     * @return ArrayCollection<int, Form>
      */
     public function getForms()
     {
@@ -681,10 +694,8 @@ class Campaign extends FormEntity implements PublishStatusIconAttributesInterfac
 
     /**
      * Get contact membership.
-     *
-     * @return Collection
      */
-    public function getContactMembership(Contact $contact)
+    public function getContactMembership(Contact $contact): Collection
     {
         return $this->leads->matching(
             Criteria::create()
