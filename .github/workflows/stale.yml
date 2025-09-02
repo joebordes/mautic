@@ -18,7 +18,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-          operations-per-run: 25
+          ascending: true
+          operations-per-run: 500
           remove-stale-when-updated: true
 
           # Issues
