@@ -39,28 +39,7 @@ class FormActionSendToUserCest
 
         $I->waitForText('Add a new submit action', 3);
         $I->click('Add a new submit action');
-        try {
-            $I->click('//li[contains(text(), "Send form results")]');
-            $I->waitForElementVisible('#formComponentModal', 10);
-        } catch (\Exception $e) {
-            $I->executeJS(
-                "(function(){\n".
-                "  var selects = document.querySelectorAll('select.form-builder-new-component');\n".
-                "  var sel = null;\n".
-                "  for (var i=0;i<selects.length;i++){ if (selects[i].getAttribute('data-placeholder')==='Add a new submit action'){ sel = selects[i]; break; } }\n".
-                "  if (!sel) return;\n".
-                "  var idx = -1;\n".
-                "  for (var i=0; i<sel.options.length; i++){ if (sel.options[i].text.trim() === 'Send form results'){ idx = i; break; } }\n".
-                "  if (idx > 0){\n".
-                "    sel.selectedIndex = idx;\n".
-                "    var opt = sel.options[idx];\n".
-                "    if (window.Mautic && typeof Mautic.ajaxifyModal === 'function') { Mautic.ajaxifyModal(opt); }\n".
-                "    if (window.mQuery) { mQuery(sel).trigger('change'); } else { var evt = new Event('change', { bubbles: true }); sel.dispatchEvent(evt); }\n".
-                "  }\n".
-                "})();"
-            );
-            $I->waitForElementVisible('#formComponentModal', 10);
-        }
+        $I->click('//li[contains(text(), "Send form results")]');
         $I->waitForText('Send form results', 2);
 
         // Assert token insertion
