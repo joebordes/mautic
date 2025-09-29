@@ -1625,6 +1625,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kou",
+      "name": "Sutou Kouhei",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27350?v=4",
+      "profile": "https://www.clear-code.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
