@@ -39,7 +39,7 @@
             <div>
                 <!-- page detail header -->
                 <!-- sms detail collapseable toggler -->
-                {% include '@MauticCore/Helper/description.html.twig' with {'description': tag.description} %}
+                {% include '@MauticCore/Helper/description--expanded.html.twig' with {'description': tag.description} %}
                 <div class="collapse pr-md pl-md" id="sms-details">
                     <div class="pr-md pl-md pb-md">
                         <div class="panel shd-none mb-0">
@@ -78,7 +78,7 @@
 
             <div class="mt-lg mb-lg">
                 {% if security.isGranted('lead:leads:viewown') %}
-                {% include '@MauticCore/Components/contained-list--interactive.html.twig' with {
+                {% include '@MauticCore/Components/contained-list.html.twig' with {
                     title: 'mautic.core.useful_links',
                     items: [
                         {
@@ -88,7 +88,8 @@
                             }),
                             icon: 'ri-user-6-line'
                         }
-                    ]
+                    ],
+                    variant: 'interactive'
                 } %}
                 {% endif %}
             </div>
