@@ -20,7 +20,7 @@ services:
     - PMA_PORT=3306
     - VIRTUAL_HOST=$DDEV_HOSTNAME
     - UPLOAD_LIMIT=4000M
-    - HTTP_EXPOSE=8036:80
+    - HTTP_EXPOSE=8034:80
     - HTTPS_EXPOSE=8037:80
     healthcheck:
       interval: 120s
