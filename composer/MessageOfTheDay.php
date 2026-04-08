@@ -67,7 +67,12 @@ final class MessageOfTheDay
     private static function getMessages(array $config): array
     {
         $json = self::fetchMotdJson($config);
-        $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+
+        try {
+            $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException) {
+            throw new MessageOfTheDayException('Could not decode MOTD JSON');
+        }
 
         if (empty($data['messages']) || !is_array($data['messages'])) {
             return [];
