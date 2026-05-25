@@ -13,4 +13,6 @@ class FormPage
     public static string $ADD_NEW_FIELD_BUTTON_TEXT             = 'Add a new field';
     public static string $FORM_FIELD_TEXT_SHORT_ANSWER_SELECTOR = '//li[contains(text(), "Text: Short answer")]';
     public static string $FORM_FIELD_EMAIL_SELECTOR             = '//li[contains(text(), "Email")]';
+    public static string $ACTION_MODAL_SELECTOR                 = '#MauticSharedModal';
+    public static string $ACTION_MODAL_SAVE_BUTTON              = 'button[name="formaction[buttons][save]"]';
 }
