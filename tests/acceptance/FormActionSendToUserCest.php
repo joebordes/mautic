@@ -53,8 +53,8 @@ class FormActionSendToUserCest
         $I->assertEquals(1, substr_count($message, '<strong>Email Address</strong>: {formfield=email_address}'));
 
         // Save the action
-        $I->waitForElementClickable(FormPage::$actionModalSaveButton, 10);
-        $I->click(FormPage::$actionModalSaveButton);
+        $I->waitForElementVisible(FormPage::$actionModalSaveButton, 10);
+        $I->executeJS('document.querySelector(\'button[name="formaction[buttons][save]"]\').click();');
         $I->waitForElementNotVisible(FormPage::$actionModalSelector, 10);
     }
 }
