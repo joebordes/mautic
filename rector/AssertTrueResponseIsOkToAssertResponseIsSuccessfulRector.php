@@ -17,6 +17,7 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\Int_;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Expression;
+use Rector\PHPStan\ScopeFetcher;
 use Rector\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -59,6 +60,10 @@ final class AssertTrueResponseIsOkToAssertResponseIsSuccessfulRector extends Abs
     public function refactor(Node $node): ?Node
     {
         if (!$node instanceof MethodCall && !$node instanceof StaticCall) {
+            return null;
+        }
+
+        if (!$this->isInWebTestCase($node)) {
             return null;
         }
 
@@ -242,5 +247,13 @@ final class AssertTrueResponseIsOkToAssertResponseIsSuccessfulRector extends Abs
         }
 
         return $currentNode;
+    }
+
+    private function isInWebTestCase(Node $node): bool
+    {
+        $classReflection = ScopeFetcher::fetch($node)->getClassReflection();
+
+        return null !== $classReflection
+            && $classReflection->is('Symfony\Bundle\FrameworkBundle\Test\WebTestCase');
     }
 }

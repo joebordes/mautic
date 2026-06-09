@@ -37,6 +37,5 @@ return RectorConfig::configure()
         ParentTestClassConstructorRector::class, // Adds unnecessary constructors to test classes without custom logic.
         WebTestCaseAssertIsSuccessfulRector::class => [
             __DIR__.'/app/bundles/CoreBundle/Tests/Functional/SamlTest.php',
-            __DIR__.'/app/bundles/MarketplaceBundle/Tests/Functional/Controller/AjaxControllerTest.php',
         ],
     ]);
