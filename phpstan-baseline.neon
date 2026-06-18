@@ -868,12 +868,6 @@ parameters:
 			path: app/bundles/AssetBundle/EventListener/DashboardSubscriber.php
 
 		-
-			message: '#^Variable \$ids in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/AssetBundle/EventListener/DetermineWinnerSubscriber.php
-
-		-
 			message: '#^Parameter \#2 \$maxUploadSizeMB of method Mautic\\CoreBundle\\Validator\\FileUploadValidator\:\:checkFileSize\(\) expects string, float given\.$#'
 			identifier: argument.type
 			count: 1
@@ -1596,12 +1590,6 @@ parameters:
 		-
 			message: '#^Property Mautic\\CampaignBundle\\Controller\\CampaignController\:\:\$sessionId has no type specified\.$#'
 			identifier: missingType.property
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/CampaignController.php
-
-		-
-			message: '#^Variable \$sessionId in empty\(\) is never defined\.$#'
-			identifier: empty.variable
 			count: 1
 			path: app/bundles/CampaignBundle/Controller/CampaignController.php
 
@@ -5224,12 +5212,6 @@ parameters:
 			path: app/bundles/CoreBundle/Controller/Api/StatsApiController.php
 
 		-
-			message: '#^Variable \$themeZip in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/CoreBundle/Controller/Api/ThemeApiController.php
-
-		-
 			message: '#^Call to an undefined method Twig\\Environment\:\:get\(\)\.$#'
 			identifier: method.notFound
 			count: 2
@@ -5433,12 +5415,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\CoreBundle\\Controller\\ThemeController\:\:getIndexPostActionVars\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/CoreBundle/Controller/ThemeController.php
-
-		-
-			message: '#^Variable \$fileData in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
 			count: 1
 			path: app/bundles/CoreBundle/Controller/ThemeController.php
 
@@ -12424,12 +12400,6 @@ parameters:
 			path: app/bundles/EmailBundle/EventListener/ReportSubscriber.php
 
 		-
-			message: '#^Variable \$joins in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/EmailBundle/EventListener/ReportSubscriber.php
-
-		-
 			message: '#^Method Mautic\\EmailBundle\\EventListener\\TokenSubscriber\:\:matchFilterForLead\(\) has parameter \$filter with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -15673,12 +15643,6 @@ parameters:
 			path: app/bundles/FormBundle/EventListener/DashboardSubscriber.php
 
 		-
-			message: '#^Variable \$ids in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/FormBundle/EventListener/DetermineWinnerSubscriber.php
-
-		-
 			message: '#^Method Mautic\\FormBundle\\EventListener\\FormSubscriber\:\:getEmailsFromString\(\) has parameter \$emailString with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -15897,12 +15861,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\FormBundle\\Helper\\FormUploader\:\:fixRotationJPG\(\) has parameter \$filename with no type specified\.$#'
 			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/FormBundle/Helper/FormUploader.php
-
-		-
-			message: '#^Variable \$ort1 in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
 			count: 1
 			path: app/bundles/FormBundle/Helper/FormUploader.php
 
@@ -23567,12 +23525,6 @@ parameters:
 			path: app/bundles/LeadBundle/Form/Validator/Constraints/FieldAliasKeywordValidator.php
 
 		-
-			message: '#^Variable \$oldValue in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/LeadBundle/Form/Validator/Constraints/FieldAliasKeywordValidator.php
-
-		-
 			message: '#^Property Mautic\\LeadBundle\\Form\\Validator\\Constraints\\SegmentInUse\:\:\$message has no type specified\.$#'
 			identifier: missingType.property
 			count: 1
@@ -29238,18 +29190,6 @@ parameters:
 			identifier: classConstant.deprecatedClass
 			count: 1
 			path: app/bundles/PluginBundle/Form/Type/DetailsType.php
-
-		-
-			message: '#^Variable \$fields in empty\(\) is never defined\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/PluginBundle/Form/Type/FeatureSettingsType.php
-
-		-
-			message: '#^Variable \$integrationCompanyFields in empty\(\) is never defined\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/PluginBundle/Form/Type/FeatureSettingsType.php
 
 		-
 			message: '#^Method Mautic\\PluginBundle\\Form\\Type\\FieldsType\:\:buildFieldView\(\) has no return type specified\.$#'
@@ -37622,24 +37562,6 @@ parameters:
 			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
 
 		-
-			message: '#^Variable \$mauticCompanyFieldString in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
-
-		-
-			message: '#^Variable \$objectFields in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
-
-		-
-			message: '#^Variable \$personIds in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
-
-		-
 			message: '#^Call to an undefined method MauticPlugin\\MauticCrmBundle\\Api\\CrmApi\:\:getEmailBySugarUserId\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -38137,12 +38059,6 @@ parameters:
 		-
 			message: '#^Return type \(array\) of method MauticPlugin\\MauticCrmBundle\\Integration\\SugarcrmIntegration\:\:authCallback\(\) should be compatible with return type \(bool\|string\) of method Mautic\\PluginBundle\\Integration\\AbstractIntegration\:\:authCallback\(\)$#'
 			identifier: method.childReturnType
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SugarcrmIntegration.php
-
-		-
-			message: '#^Variable \$sugarObjects in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
 			count: 1
 			path: plugins/MauticCrmBundle/Integration/SugarcrmIntegration.php
 
