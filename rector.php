@@ -49,8 +49,12 @@ return RectorConfig::configure()
     ])
     ->reportUnusedSkips()
     ->withTypeCoverageLevel(23)
-    ->withCodeQualityLevel(2)
+    ->withCodingStyleLevel(3)
+    ->withCodeQualityLevel(17)
     ->withSkip([
+        // too many changes
+        Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector::class,
+
         Rector\Renaming\Rector\FuncCall\RenameFunctionRector::class,
         '*/Test/*',
         '*/Tests/*',
