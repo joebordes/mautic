@@ -28,6 +28,7 @@ class CampaignEventSubscriber implements EventSubscriberInterface
     public const LOOPS_TO_FAIL = 100;
 
     private const MINIMUM_CONTACTS_FOR_DISABLE = 100;
+
     private const DISABLE_CAMPAIGN_THRESHOLD   = 0.35;
 
     public function __construct(
@@ -69,7 +70,10 @@ class CampaignEventSubscriber implements EventSubscriberInterface
             && $campaign->getIsPublished()
             && !$campaign->getPublishUp()
         ) {
-            $campaign->setPublishUp(new \DateTime());
+            // Publish up date should be in format 'yyyy-MM-dd HH:mm'
+            $publishUp = new \DateTime();
+            $publishUp->setTime((int) $publishUp->format('H'), (int) $publishUp->format('i'));
+            $campaign->setPublishUp($publishUp);
         }
 
         if (array_key_exists('isPublished', $changes)) {
